@@ -100,9 +100,9 @@ export default function Home() {
                 open={modalOpen}
             >
                 <Box sx={{ ...modalStyle, width: 200 }}>
-                    <h2 id="child-modal-title">Text in a child modal</h2>
+                    <h2 id="child-modal-title">You have a game in progress</h2>
                     <p id="child-modal-description">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Do you want to continue the game?
                     </p>
                     <Grid container direction={"row"}>
                         <Grid item>
