@@ -25,6 +25,7 @@ export default function Home() {
 
     const onReset = () => {
         localStorage.removeItem("currentState")
+        localStorage.removeItem("inventory")
         setModalOpen(false);
     }
 
@@ -52,18 +53,20 @@ export default function Home() {
     }
 
     const onClickStart = () => {
-        localStorage.setItem("currentState", "main")
+        localStorage.setItem("currentState", "char")
         localStorage.setItem("inventory", {})
     }
 
     return (
 
         <Grid
+            
             container
             direction={"column"}
             alignItems="center"
             justifyContent={"center"}
             sx={{
+                // cursor: "pointer",
                 height: "100vh",
                 backgroundColor: "#253B3A"
             }}

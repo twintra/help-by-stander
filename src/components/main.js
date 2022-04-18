@@ -1,254 +1,74 @@
-import { Box, Button, Grid, IconButton, Modal, Typography } from "@mui/material";
+import { Box, Button, Fade, Grid, IconButton, Modal, Paper, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import charactorList from "../data/character";
+import characterList from "../data/character";
 import CloseIcon from '@mui/icons-material/Close';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { width } from "@mui/system";
+import char1 from '../assets/images/Character_1_Iris-18.png'
+import char2 from '../assets/images/Character_2_Thee.png'
+import char3 from '../assets/images/Character_3_Ongsa.png'
+import char4 from '../assets/images/Character_4_Thanwa.png'
+import CharaterScreen from "./stage/character_screen";
+import Ch0 from "./stage/ch0";
+import Ch1 from "./stage/ch1";
+import Ch2 from "./stage/ch2";
+import Ch3 from "./stage/ch3";
+import Ch4 from "./stage/ch4";
+
 
 
 export default function Main() {
 
+
+
     const currentState = localStorage.getItem("currentState")
-    const [currCharIndex, setCurrCharIndex] = useState(0);
-    const [modalOpen, setModalOpen] = useState(false);
-
-    if (currentState === null) {
-        window.location.replace("/")
-    }
-
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const handleScroll = () => {
-        const position = window.scrollY;
-        setScrollPosition(position);
-        console.log(position)
-        var limit = document.body.offsetHeight - window.innerHeight;
-        if (limit === position) {
-            console.log("i will show button")
-        }
-
-    };
+    const inventoryData = localStorage.getItem("inventory");
+    const [currChapter, setCurrChapter] = useState("");
+    const [inventory, setInventory] = useState({});
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        if (currentState === null) {
+            window.location.replace("/")
+        } else {
+            setCurrChapter(currentState)
+            setInventory(inventoryData);
+        }
+    }, [])
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    function characterDisplay() {
-        return (
-            charactorList.map((value, index) => {
-
-                return (
-                    <Grid
-                        key={index}
-                        item
-                        xs
-                        sx={{
-                            width: "300px",
-                            height: "600px",
-                            margin: "1px",
-                            backgroundColor: "#000000",
-                            cursor: "pointer"
-                        }}
-                        onClick={() => {
-                            console.log(index)
-                            setCurrCharIndex(index);
-                            setModalOpen(true)
-                        }}
-                    >
-                        <Grid container direction={"column"} >
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
-
-                                    {value.name}
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
-
-                                    {value.bd}
-                                </Typography>
-
-                            </Grid>
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
-
-                                    {value.bm}
-                                </Typography>
-
-                            </Grid>
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
-
-                                    {value.detail}
-                                </Typography>
-                            </Grid>
-
-                        </Grid>
-                    </Grid>
-                )
-            })
-        );
+    const goToChapter = (chapter) => {
+        localStorage.setItem("currentState", chapter)
+        setCurrChapter(chapter)
     }
 
-    function characterCard() {
-        const value = charactorList[currCharIndex];
-        return (
-            <Grid
+    function manageChapter() {
+        switch (currChapter) {
+            case "char":
+                return <CharaterScreen onNext={() => goToChapter("ch0")} />
+            case "ch0":
+                return <Ch0 onNext={() => goToChapter("ch1")}/>
+            case "ch1":
 
-                item
-                xs
-                sx={{
-                    width: "300px",
-                    height: "500px",
-                    margin: "1px",
+                return <Ch1 onNext={() => goToChapter("ch2")}/>
+            case "ch2":
 
-                    cursor: "pointer"
-                }}
+                return <Ch2 onNext={() => goToChapter("ch3")}/>
+            case "ch3":
 
-            >
-                <Grid container direction={"column"} >
-                    <Grid item>
-                        <Typography color={"#FFFFFF"}>
+                return <Ch3 onNext={() => goToChapter("ch4")}/>
+            case "ch4":
 
-                            {value.name}
-                        </Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography color={"#FFFFFF"}>
-
-                            {value.bd}
-                        </Typography>
-
-                    </Grid>
-                    <Grid item>
-                        <Typography color={"#FFFFFF"}>
-
-                            {value.bm}
-                        </Typography>
-
-                    </Grid>
-                    <Grid item>
-                        <Typography color={"#FFFFFF"}>
-
-                            {value.detail}
-                        </Typography>
-                    </Grid>
-
-                </Grid>
-            </Grid>
-        )
-    }
-
-    const modalStyle = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: '#000000',
-        border: '2px solid #000',
-        boxShadow: 24,
-    };
-
-    const onNextCharacter = () => {
-        if (currCharIndex < charactorList.length) {
-            setCurrCharIndex(currCharIndex + 1);
+                return <Ch4 onNext={() => console.log("finished")}/>
+                
+            default:
+                break;
         }
     }
 
-    const onPreviousCharacter = () => {
-        if (currCharIndex > 0) {
 
-            setCurrCharIndex(currCharIndex - 1);
-        }
-    }
 
     return (
-        <Grid container
-            direction={"column"}
-            alignItems="center"
-            // justifyContent={"center"}
-            sx={{
-                minHeight: "100vh",
-                backgroundColor: "#253B3A",
-                width: "100vw"
-            }}
-        >
-            <Grid item sx={{ padding: "50px", paddingBottom:"150px" }}>
-                <Typography color={"#FFFFFF"} fontSize="100px">
-                    CHARACTER
-                </Typography>
-            </Grid>
-            <Grid item sx={{ marginBottom: "50px" }}>
-                <Grid container direction={"row"} >
-                    {characterDisplay()}
-                </Grid>
-            </Grid>
-            {/* <Grid item sx={{position:"relative" , bottom:"50px",right:"0px", }}> */}
-                <Button variant="contained" sx={{position:"relative" , bottom:"70px",left:"40vw", zIndex:"100" }}>
-                    CH 0
-                </Button>
-
-            {/* </Grid> */}
-
-
-            <Modal
-                open={modalOpen}
-            >
-                <Box sx={{ ...modalStyle, width: 200 }}>
-                    <Grid container direction={"row"} alignItems="end" justifyContent={"end"}>
-                        <IconButton
-                            sx={{ padding: "0px", color: "#FFFFFF" }}
-                            onClick={() => {
-                                setModalOpen(false);
-                            }}
-                        >
-                            <CloseIcon />
-                        </IconButton>
-
-                    </Grid>
-
-                    <Grid item xs>
-                        {characterCard()}
-                    </Grid>
-
-                    <Grid container direction={"row"} >
-                        <Grid xs item>
-                            <Grid container justifyContent={"start"}>
-
-                                <IconButton
-                                    sx={{ padding: "0px", color: "#FFFFFF" }}
-                                    onClick={onPreviousCharacter}
-                                >
-                                    <ChevronLeftIcon />
-
-                                </IconButton>
-                            </Grid>
-
-
-                        </Grid>
-                        <Grid xs item >
-                            <Grid container justifyContent={"end"}>
-                                <IconButton
-                                    sx={{ padding: "0px", color: "#FFFFFF" }}
-                                    onClick={onNextCharacter}
-                                >
-                                    <ChevronRightIcon />
-                                </IconButton>
-
-                            </Grid>
-
-                        </Grid>
-                    </Grid>
-
-
-                </Box>
-
-            </Modal>
-        </Grid>
+        <>
+            {manageChapter()}
+        </>
     );
 }
