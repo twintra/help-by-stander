@@ -1,26 +1,40 @@
-import { Button, Grid, Modal, Typography } from "@mui/material";
+import { Button, Fade, Grid, Modal, Typography } from "@mui/material";
 import { useState } from "react";
-import char1 from '../../assets/images/Character_1_Iris-18.png'
-import char2 from '../../assets/images/Character_2_Thee.png'
-import char3 from '../../assets/images/Character_3_Ongsa.png'
-import char4 from '../../assets/images/Character_4_Thanwa.png'
 import FailedScreen from "../failedScreen";
+import GotItemScreen from "../gotItemScreen";
+import LoadingScreen from "./loadingScreen";
 
 export default function Ch1(props) {
 
-    const [scene, setScene] = useState(0);
+    const [scene, setScene] = useState(-1);
     const [modalOpen, setModalOpen] = useState(false);
+    const public_path = process.env.PUBLIC_URL
+    const sceneImage = [
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
+
+    ]
+
+
 
     const nextScene = () => {
         setScene(scene + 1);
     }
 
     const onChapterFailed = () => {
-        setScene(-1);
+        setScene(-2);
     }
 
     const onChapterSuccess = () => {
         props.onNext();
+    }
+    const onChapterSuccessAndGotItem = () => {
+        setScene(-3);
     }
 
     const onClickLastStep = () => {
@@ -29,19 +43,61 @@ export default function Ch1(props) {
 
     function sceneControl() {
         switch (scene) {
+            case -3:
+                return <GotItemScreen onNext={props.onNext} />
+            case -2:
+                return <FailedScreen onNext={props.onNext} />
             case -1:
-                return <FailedScreen onNext = {props.onNext}/>
-            case 0:
-                return <img src={char1} width="100%" onClick={() => nextScene()} />
 
+                return <LoadingScreen nextScene={nextScene} chapter={1} />
+            case 0:
+                return (
+
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[0]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
             case 1:
-                return <img src={char2} width="100%" onClick={() => nextScene()} />
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[1]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
             case 2:
-                return <img src={char3} width="100%" onClick={() => nextScene()} />
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[2]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
             case 3:
                 return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[3]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 4:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[4]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 5:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 6:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+
+            case 7:
+                return (
                     <>
-                        <img src={char4} width="100%" onClick={onClickLastStep} />
+                        <img src={sceneImage[6]} width="100%" onClick={onClickLastStep} />
                         <Modal
                             open={modalOpen}
                         >
@@ -58,18 +114,18 @@ export default function Ch1(props) {
                                     transform: 'translate(-50%, -50%)',
                                 }}
                             >
-                                <Grid item style={{margin:"10px"}}>
+                                <Grid item style={{ margin: "10px" }}>
                                     <Typography fontSize={"30px"} color="white">
                                         สถานการณ์ตอนนี้ คิดว่าควรทำอย่างไร
                                     </Typography>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }} onClick={onChapterSuccess}>
+                                <Grid item style={{ margin: "10px" }} onClick={onChapterSuccessAndGotItem}>
                                     <Button variant="contained">
-                                        choice1 (go next chapter)
+                                        choice1 (go next chapter and got item)
                                     </Button>
                                 </Grid>
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Button variant="contained" onClick={onChapterFailed }>
+                                    <Button variant="contained" onClick={onChapterFailed}>
                                         choice2 (failed)
                                     </Button>
                                 </Grid>
@@ -79,13 +135,15 @@ export default function Ch1(props) {
                                     </Button>
                                 </Grid>
                             </Grid>
-                            
+
 
                         </Modal>
                     </>
                 )
+            
             default:
                 break;
+
         }
     }
 

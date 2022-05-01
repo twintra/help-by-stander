@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Niagara';
+    src: local('Niagara'),
+         url(./fonts/NIAGSOL.TTF) format('truetype'),
+         
+  }
+  @font-face {
+    font-family: "Niagara";
+    src: local("Niagara"),
+     url("./fonts/NIAGSOL.TTF") format("truetype");
+    font-weight: bold;
+    }

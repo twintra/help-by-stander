@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Modal, Typography } from "@mui/material";
+import { Box, Button, Grid, Modal, Paper, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/hexagon.css"
@@ -59,31 +59,55 @@ export default function Home() {
 
     return (
 
-        <Grid
-            
-            container
-            direction={"column"}
-            alignItems="center"
-            justifyContent={"center"}
-            sx={{
-                // cursor: "pointer",
-                height: "100vh",
-                backgroundColor: "#253B3A"
-            }}
-        >
-            <Grid item sm={3} />
-            <Grid item sm={3}>
-                <Typography color={"white"} fontSize="70px">
-                    help Bystander
-                </Typography>
-                {/* <Button sx={{ color: "#D3D2D3", backgroundColor: "#71ACAE" }}>
-                    start
-                </Button> */}
+        <Paper
 
+            
+            direction={"column"}
+            
+            sx={{
+                height: "100vh",
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/1st_Page/1st_BG-1.png)`,
+                backgroundSize: "cover"
+            }}
+
+        >
+
+
+            <Grid container justifyContent={"center"} alignItems="center" position={"absolute"} top="10vh">
+
+                <img
+                    width={"50%"}
+                    src={process.env.PUBLIC_URL + '/assets/Element/1st_Page/1stPage_Element-39.png'}
+
+
+                />
             </Grid>
-            <Grid item sm={3}>
+
+
+
+
+
+            <Grid item position={"absolute"} bottom={0}>
+                <img
+                    width={"100%"}
+                    src={process.env.PUBLIC_URL + '/assets/Element/1st_Page/1stPage_Element-40.png'}
+
+                />
+            </Grid>
+            <Grid item position={"absolute"} >
+                <img
+                    // width={"100%"}
+                    width={"100%"}
+                    height={"100%"}
+                    src={process.env.PUBLIC_URL + '/assets/Element/1st_Page/1stPage_Element-35.png'}
+
+
+                />
+            </Grid>
+
+            <Grid container justifyContent={"center"} alignItems="center" position={"absolute"} bottom="10vh">
                 <Link to={"/main"}>
-                    <div className="frame" onClick={onClickStart}>
+                    {/* <div className="frame" onClick={onClickStart}>
                         <div className="hex-outer h1"></div>
                         <div className="hex-outer h2"></div>
                         <div className="hex-outer h3"></div>
@@ -94,10 +118,20 @@ export default function Home() {
                         <div className="hex-inner h2"></div>
                         <div className="hex-inner h3"></div>
                         <div className="label">Start</div>
-                    </div>
+                    </div> */}
+                    <Grid container justifyContent={"center"} alignItems="center">
+
+                        <img
+                            width={"40%"}
+                            src={process.env.PUBLIC_URL + '/assets/Element/1st_Page/1stPage_Element-37.png'}
+                            onClick={onClickStart}
+                        />
+                    </Grid>
+
                 </Link>
-                {/* <Box sx={{...hexOuter, transform: "rotate(90deg)"}} /> */}
             </Grid>
+
+
 
             <Modal
                 open={modalOpen}
@@ -120,6 +154,6 @@ export default function Home() {
 
                 </Box>
             </Modal>
-        </Grid>
+        </Paper>
     );
 }

@@ -4,10 +4,7 @@ import characterList from "../../data/character";
 import CloseIcon from '@mui/icons-material/Close';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import char1 from '../../assets/images/Character_1_Iris-18.png'
-import char2 from '../../assets/images/Character_2_Thee.png'
-import char3 from '../../assets/images/Character_3_Ongsa.png'
-import char4 from '../../assets/images/Character_4_Thanwa.png'
+
 
 
 export default function CharaterScreen(props) {
@@ -15,17 +12,24 @@ export default function CharaterScreen(props) {
     const [currCharIndex, setCurrCharIndex] = useState(0);
     const [modalOpen, setModalOpen] = useState(false);
     const [showStartButton, setShowStartButton] = useState(false);
-    const imagesList = [char1, char2, char3, char4]
+    const public_path = process.env.PUBLIC_URL
+    const imagesList = [
+        `${public_path}/assets/Element/Character_page/Character_1_Iris-18.png`,
+        `${public_path}/assets/Element/Character_page/Character_2_Thee.png`,
+        `${public_path}/assets/Element/Character_page/Character_3_Ongsa.png`,
+        `${public_path}/assets/Element/Character_page/Character_4_Thanwa.png`
+    ]
+    const [loading, setLoading] = useState(false);
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = () => {
         const position = window.scrollY;
         setScrollPosition(position);
-        
+
         var limit = document.body.offsetHeight - window.innerHeight;
-        
+
         if (limit * 0.9 < position) {
-            
+
             setShowStartButton(true);
         } else {
 
@@ -35,11 +39,16 @@ export default function CharaterScreen(props) {
     };
 
     useEffect(() => {
+        setLoading(true)
         window.addEventListener('scroll', handleScroll, { passive: true });
-
+        imagesList.forEach((image) => {
+            new Image().src = image;
+        })
+        setLoading(false);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
+
     }, []);
 
     function characterDisplay() {
@@ -49,14 +58,19 @@ export default function CharaterScreen(props) {
                 return (
                     <Grid
                         key={index}
-                        item
-                        xs
+                        container
+
                         sx={{
                             width: "300px",
                             height: "600px",
                             margin: "1px",
                             backgroundColor: "#000000",
-                            cursor: "pointer"
+                            cursor: "pointer",
+                            backgroundImage: `url(${process.env.PUBLIC_URL}${value.image_path_name})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center"
+
+
                         }}
                         onClick={() => {
                             console.log(index)
@@ -64,35 +78,17 @@ export default function CharaterScreen(props) {
                             setModalOpen(true)
                         }}
                     >
-                        <Grid container direction={"column"} >
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
 
-                                    {value.name}
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
+                        {/* <Grid container direction={"column"} >
+                            <img
 
-                                    {value.bd}
-                                </Typography>
+                                width={"100%"}
+                                src={process.env.PUBLIC_URL + value.image_path_name}
 
-                            </Grid>
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
 
-                                    {value.bm}
-                                </Typography>
+                            />
 
-                            </Grid>
-                            <Grid item>
-                                <Typography color={"#FFFFFF"}>
-
-                                    {value.detail}
-                                </Typography>
-                            </Grid>
-
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 )
             })
@@ -137,85 +133,112 @@ export default function CharaterScreen(props) {
         }
     }
 
-    return (
-        <Grid container
-            direction={"column"}
-            alignItems="center"
-            // justifyContent={"center"}
-            sx={{
-                backgroundColor: "#253B3A",
-            }}
-        >
-            <Grid item sx={{ padding: "50px", paddingBottom: "150px" }}>
-                <Typography color={"#FFFFFF"} fontSize="100px">
-                    CHARACTER
-                </Typography>
-            </Grid>
-            <Grid item sx={{ marginBottom: "50px", }}>
-                <Grid container direction={"row"} >
-                    {characterDisplay()}
-                </Grid>
+    function onClickCh0() {
+        props.onNext();
+    }
 
-            </Grid>
-            <Grid item>
-                <Fade in={showStartButton} timeout={{ enter: 1000, exit: 1000 }}>
-                    <Button variant="contained" sx={{ position: "", bottom: "100px", right: "-40vw", }} onClick={()=>props.onNext()}>
-                        CH 0
-                    </Button>
+    return (<>
+        {
+            loading ?
+                <Grid>loading</Grid>
+                :
+                <Grid container
+                    direction={"column"}
+                    alignItems="center"
+                    // justifyContent={"center"}
+                    sx={{
+                        width: "100vw",
+                        backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Character_page/element/BG_AllCharacter_Page.png)`,
+                        backgroundSize: "cover",
+                        // backgroundColor:"yellow"
 
-                </Fade>
-            </Grid>
-
-
-
-            <Modal
-                open={modalOpen}
-            >
-
-                <Paper sx={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: "80vw",
-                    bgcolor: '#000000',
-                    boxShadow: 24,
-                }}
+                    }}
                 >
+                    <Grid item sx={{ padding: "0px", marginBottom: "50px" }}>
+                        <Grid container alignItems={"center"} justifyContent="center">
+                            <img
+
+                                width={"40%"}
+                                src={process.env.PUBLIC_URL + '/assets/Element/Character_page/element/AllCharacter_Element-39.png'}
 
 
-                    {displayByIndex()}
+                            />
 
-                    <IconButton
-                        disableRipple
-                        sx={{ padding: "0px", color: "#FFFFFF", top: 0, right: 0, position: "absolute" }}
-                        onClick={() => {
-                            setModalOpen(false);
+                        </Grid>
+                    </Grid>
+                    <Grid item sx={{ marginBottom: "50px", }}>
+                        <Grid container direction={"row"} >
+                            {characterDisplay()}
+                        </Grid>
+
+                    </Grid>
+                    <Fade in={showStartButton} timeout={{ enter: 1000, exit: 1000 }}>
+                        <Grid item position={"absolute"} top={"115vh"} right={"5vw"} sx={{ ":hover": { cursor: "pointer" } }} onClick={onClickCh0}>
+                            <img
+
+                                width={"130px"}
+                                src={process.env.PUBLIC_URL + '/assets/Element/Character_page/element/AllCharacter_Element_ch-14.png'}
+
+
+                            />
+                        </Grid>
+                    </Fade>
+
+
+
+
+                    <Modal
+                        open={modalOpen}
+                    >
+
+                        <Paper sx={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: "80vw",
+                            bgcolor: '#000000',
+                            boxShadow: 24,
                         }}
-                    >
-                        <CloseIcon />
-                    </IconButton>
+                        >
 
-                    <IconButton
-                        disableRipple
-                        sx={{ padding: "0px", color: "#FFFFFF", bottom: 0, left: 0, position: "absolute" }}
-                        onClick={onPreviousCharacter}
-                    >
-                        <ChevronLeftIcon sx={{ width: "70px", height: "70px" }} />
 
-                    </IconButton>
+                            {displayByIndex()}
 
-                    <IconButton
-                        disableRipple
-                        sx={{ padding: "0px", color: "#FFFFFF", bottom: 0, right: 0, position: "absolute" }}
-                        onClick={onNextCharacter}
-                    >
-                        <ChevronRightIcon sx={{ width: "70px", height: "70px" }} />
-                    </IconButton>
+                            <IconButton
+                                disableRipple
+                                sx={{ padding: "0px", color: "#FFFFFF", top: 0, right: 0, position: "absolute" }}
+                                onClick={() => {
+                                    setModalOpen(false);
+                                }}
+                            >
+                                <CloseIcon />
+                            </IconButton>
 
-                </Paper>
+                            <IconButton
+                                disableRipple
+                                sx={{ padding: "0px", color: "#FFFFFF", bottom: 0, left: 0, position: "absolute" }}
+                                onClick={onPreviousCharacter}
+                            >
+                                <ChevronLeftIcon sx={{ width: "70px", height: "70px" }} />
 
-            </Modal>
-        </Grid>
+                            </IconButton>
+
+                            <IconButton
+                                disableRipple
+                                sx={{ padding: "0px", color: "#FFFFFF", bottom: 0, right: 0, position: "absolute" }}
+                                onClick={onNextCharacter}
+                            >
+                                <ChevronRightIcon sx={{ width: "70px", height: "70px" }} />
+                            </IconButton>
+
+                        </Paper>
+
+                    </Modal>
+                </Grid>
+        }
+    </>
+
+
     )
 }

@@ -5,14 +5,14 @@ const charactorList = [
         bd: "9/7",
         bm: "163/47",
         detail: "first victim",
-        image_path_name: 'Character_1_Iris-18.png'
+        image_path_name: '/assets/Element/Character_page/element/allCharaPage_1_Iris.png'
     },
     {
         name: "Thee",
         bd: "7/6",
         bm: "169/52",
         detail: "second victim",
-        image_path_name: 'Character_2_Thee.png'
+        image_path_name: '/assets/Element/Character_page/element/allCharaPage_2_Thee.png'
 
     },
     {
@@ -20,7 +20,7 @@ const charactorList = [
         bd: "30/8",
         bm: "170/55",
         detail: "third victim",
-        image_path_name: 'Character_3_Ongsa.png'
+        image_path_name: '/assets/Element/Character_page/element/allCharaPage_3_Ongsa.png'
 
     },
     {
@@ -28,7 +28,7 @@ const charactorList = [
         bd: "21/12",
         bm: "165/50",
         detail: "forth victim",
-        image_path_name: 'Character_4_Thanwa.png'
+        image_path_name: '/assets/Element/Character_page/element/allCharaPage_4_Thanwa.png'
 
     },
 ]

@@ -11,25 +11,35 @@ export default function FailedScreen(props) {
         props.onNext()
     }
     return (
-        <Grid container direction={"column"} sx={{ height: "100vh" }} alignItems="center" justifyContent={"center"} >
+        <Grid
+            container
+            direction={"column"}
+            sx={{
+                height: "100vh",
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_BG-1.png)`,
+                backgroundSize: "cover",
+            }}
+            alignItems="center"
+            justifyContent={"center"}
+        >
             <Grid item>
-                <Typography>
-                    Mission Failed
-                </Typography>
+                <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-42.png`} width={"400px"} />
             </Grid>
             <Grid item>
-                <Grid container direction={"row"}>
-                    <Grid item>
+                <Grid container direction={"row"} alignItems="center" justifyContent={"center"}>
+                    <Grid item onClick={onClickRestart} sx={{":hover":{cursor:"pointer"}}}>
 
-                        <Button onClick={onClickRestart}>
-                            restart
-                        </Button>
+
+                        <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-46.png`} width={"400px"} />
                     </Grid>
-                    <Grid item>
+                    <Grid item sx={{ marginX: "50px" }}>
+                        <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-47.png`} width={"100px"} />
+                    </Grid>
 
-                        <Button onClick={onClickNext}>
-                            next
-                        </Button>
+                    <Grid item onClick={onClickNext} sx={{":hover":{cursor:"pointer"}}}>
+
+                        <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-45.png`} width={"400px"} />
+
                     </Grid>
                 </Grid>
             </Grid>
