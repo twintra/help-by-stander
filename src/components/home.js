@@ -53,8 +53,15 @@ export default function Home() {
     }
 
     const onClickStart = () => {
+        const item = {
+            chapter1:false,
+            chapter2:false,
+            chapter3:false,
+            chapter4:false,
+
+        }
         localStorage.setItem("currentState", "char")
-        localStorage.setItem("inventory", {})
+        localStorage.setItem("inventory", JSON.stringify(item))
     }
 
     return (
