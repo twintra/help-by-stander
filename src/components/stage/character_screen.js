@@ -170,7 +170,7 @@ export default function CharaterScreen(props) {
                         <Grid container direction={"row"} >
                             {characterDisplay()}
                         </Grid>
-                        <Grid item position={"relative"} zIndex={10} bottom={"10vh"} left={"80vw"} sx={{ ":hover": { cursor: "pointer" } }} onClick={onClickCh0}>
+                        <Grid item position={"relative"} zIndex={10} bottom={"10vh"} left={"90%"} sx={{ ":hover": { cursor: "pointer" } }} onClick={onClickCh0}>
 
                             <Fade in={showStartButton} timeout={{ enter: 1000, exit: 1000 }}>
 
