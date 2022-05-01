@@ -61,9 +61,9 @@ export default function Home() {
 
         <Paper
 
-            
+
             direction={"column"}
-            
+
             sx={{
                 height: "100vh",
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/1st_Page/1st_BG-1.png)`,
@@ -94,15 +94,22 @@ export default function Home() {
 
                 />
             </Grid>
-            <Grid item position={"absolute"} >
-                <img
+            <Grid
+                item
+                position={"absolute"}
+                sx={{
+                    width:"100vw",
+                    height:"100vh",
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/1st_Page/1stPage_Element-35.png)`,
+                    backgroundSize:"cover",
+                    backgroundPosition:"center"
+                }} >
+                {/* <img
                     // width={"100%"}
                     width={"100%"}
                     height={"100%"}
                     src={process.env.PUBLIC_URL + '/assets/Element/1st_Page/1stPage_Element-35.png'}
-
-
-                />
+                /> */}
             </Grid>
 
             <Grid container justifyContent={"center"} alignItems="center" position={"absolute"} bottom="10vh">

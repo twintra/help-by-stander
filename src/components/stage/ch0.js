@@ -28,6 +28,12 @@ export default function Ch0(props) {
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
         
     ]
+    useEffect(()=>{
+        sceneImage.forEach((image) => {
+            new Image().src = image;
+        })
+        
+    },[])
 
     
     

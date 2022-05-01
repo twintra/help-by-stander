@@ -1,5 +1,5 @@
 import { Button, Fade, Grid, Modal, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FailedScreen from "../failedScreen";
 import GotItemScreen from "../gotItemScreen";
 import LoadingScreen from "./loadingScreen";
@@ -19,6 +19,13 @@ export default function Ch1(props) {
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
 
     ]
+
+    useEffect(()=>{
+        sceneImage.forEach((image) => {
+            new Image().src = image;
+        })
+        
+    },[])
 
 
 
