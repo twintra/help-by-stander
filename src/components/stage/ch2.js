@@ -24,8 +24,8 @@ export default function Ch2(props) {
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page6.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page7.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page8_question.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page9.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page10.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page9.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page10.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_good_answer_scene.jpg`,
     ]
     console.log(scene)
