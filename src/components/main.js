@@ -54,7 +54,7 @@ export default function Main() {
 
                 return <Ch4 onNext={() => goToChapter("ch5")} />
             case "ch5":
-                return <Ch5 onNext={() => console.log("finished")} />
+                return <Ch5 onNext={() => console.log("finished redirect to thanks page (maybe)")} />
             default:
                 break;
         }
