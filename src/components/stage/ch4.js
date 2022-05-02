@@ -6,27 +6,34 @@ import GotItemScreen from "../gotItemScreen";
 import LoadingScreen from "./loadingScreen";
 
 export default function Ch4(props) {
-     
+
     const [scene, setScene] = useState(-1);
     const [modalOpen, setModalOpen] = useState(false);
     const public_path = process.env.PUBLIC_URL
+
+    const [gotItem, setGotItem] = useState(false);
+    const [inventoryData, setInventoryData] = useState({})
+
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page1.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page2.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page3.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page5_question.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page6.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page7.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page8.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_PageFinal.png`,
     ]
+    console.log(scene)
+    useEffect(() => {
 
-    useEffect(()=>{
         sceneImage.forEach((image) => {
             new Image().src = image;
         })
-        
-    },[])
+        setInventoryData(JSON.parse(localStorage.getItem("inventory")))
+
+
+    }, [])
 
     const nextScene = () => {
         setScene(scene + 1);
@@ -36,15 +43,38 @@ export default function Ch4(props) {
         setScene(-2);
     }
 
-    const onChapterSuccess = () => {
-        props.onNext();
+    const onClickLastStep = () => {
+        if (gotItem) {
+            onShowGotItem()
+        } else {
+            props.onNext();
+        }
+
     }
-    const onChapterSuccessAndGotItem = () => {
-        setScene(-3);
+    const onShowGotItem = () => {
+
+        localStorage.setItem("inventory", JSON.stringify(inventoryData))
+        setScene(-3)
     }
 
-    const onClickLastStep = () => {
+    const onOpenQuestion = () => {
         setModalOpen(true);
+    }
+
+    const onBestAnswer = () => {
+        const temp = { ...inventoryData }
+        temp.chapter4 = true
+        setInventoryData(temp)
+        setGotItem(true);
+        nextScene()
+    }
+
+    const onWrongAnswer = () => {
+        onChapterFailed()
+    }
+
+    const onNormalAnswer = () => {
+        nextScene()
     }
 
     function sceneControl() {
@@ -83,27 +113,10 @@ export default function Ch4(props) {
                 )
             case 4:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[4]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
-                )
-            case 5:
-                return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
-                )
-            case 6:
-                return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
-                )
-
-            case 7:
-                return (
                     <>
-                        <img src={sceneImage[6]} width="100%" onClick={onClickLastStep} />
+                        <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                            <img src={sceneImage[4]} width="100%" onClick={onOpenQuestion} />
+                        </Fade>
                         <Modal
                             open={modalOpen}
                         >
@@ -121,24 +134,83 @@ export default function Ch4(props) {
                                 }}
                             >
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Typography fontSize={"30px"} color="white">
-                                        สถานการณ์ตอนนี้ คิดว่าควรทำอย่างไร
+                                    <Typography fontSize={"32px"} color="#AD1A68">
+                                        คุณจะทำอย่างไรกับสถานการณ์นี้
                                     </Typography>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }} onClick={onChapterSuccessAndGotItem}>
-                                    <Button variant="contained">
-                                        choice1 (go next chapter and got item)
-                                    </Button>
+                                <Grid item>
+                                    <Grid
+                                        container
+                                        alignItems={"center"}
+                                        justifyContent="center"
+                                        sx={{
+                                            ":hover": {
+                                                cursor: "pointer"
+                                            },
+                                            margin: "10px",
+                                            height: "160px",
+                                            width: "600px",
+                                            // padding: "50px",
+                                            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
+                                            backgroundSize: "cover",
+
+                                        }}
+                                        onClick={onNormalAnswer}
+                                        
+                                    >
+
+
+                                        ตะโกนบอกให้ระวังทันที
+
+                                    </Grid>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }}>
-                                    <Button variant="contained" onClick={onChapterFailed}>
-                                        choice2 (failed)
-                                    </Button>
+                                <Grid item >
+                                    <Grid
+                                        container
+                                        alignItems={"center"}
+                                        justifyContent="center"
+                                        sx={{
+                                            ":hover": {
+                                                cursor: "pointer"
+                                            },
+                                            margin: "10px",
+                                            height: "160px",
+                                            width: "600px",
+                                            // padding: "50px",
+                                            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
+                                            backgroundSize: "cover",
+
+                                        }}
+                                        onClick={onWrongAnswer}
+                                    >
+
+                                        เอาตัวเองเข้าไปบังเพื่อน
+
+                                    </Grid>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }} onClick={onChapterSuccess}>
-                                    <Button variant="contained">
-                                        choice3 (go next chapter)
-                                    </Button>
+                                <Grid item >
+                                    <Grid
+                                        container
+                                        alignItems={"center"}
+                                        justifyContent="center"
+                                        sx={{
+                                            ":hover": {
+                                                cursor: "pointer"
+                                            },
+                                            margin: "10px",
+                                            height: "160px",
+                                            width: "600px",
+
+                                            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
+                                            backgroundSize: "cover",
+
+                                        }}
+                                        onClick={onBestAnswer}
+                                    >
+
+                                        ตะโกนเรียกรปภ.
+
+                                    </Grid>
                                 </Grid>
                             </Grid>
 
@@ -146,7 +218,29 @@ export default function Ch4(props) {
                         </Modal>
                     </>
                 )
-            
+            case 5:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 6:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+
+            case 7:
+                return (
+                    <>
+                        <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+
+                            <img src={sceneImage[7]} width="100%" onClick={onClickLastStep} />
+                        </Fade>
+                    </>
+                )
+
             default:
                 break;
 

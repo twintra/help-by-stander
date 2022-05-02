@@ -9,6 +9,8 @@ export default function Ch1(props) {
     const [scene, setScene] = useState(-1);
     const [modalOpen, setModalOpen] = useState(false);
     const public_path = process.env.PUBLIC_URL
+    const [gotItem, setGotItem] = useState(false);
+    const [inventoryData, setInventoryData] = useState({})
     const sceneImage = [
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page1.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page2.png`,
@@ -20,12 +22,13 @@ export default function Ch1(props) {
 
     ]
 
-    useEffect(()=>{
+    useEffect(() => {
         sceneImage.forEach((image) => {
             new Image().src = image;
         })
-        
-    },[])
+        setInventoryData(JSON.parse(localStorage.getItem("inventory")))
+
+    }, [])
 
 
 
@@ -37,15 +40,38 @@ export default function Ch1(props) {
         setScene(-2);
     }
 
-    const onChapterSuccess = () => {
-        props.onNext();
+    const onClickLastStep = () => {
+        if (gotItem) {
+            onShowGotItem()
+        } else {
+            props.onNext();
+        }
+
     }
-    const onChapterSuccessAndGotItem = () => {
-        setScene(-3);
+    const onShowGotItem = () => {
+
+        localStorage.setItem("inventory", JSON.stringify(inventoryData))
+        setScene(-3)
     }
 
-    const onClickLastStep = () => {
+    const onOpenQuestion = () => {
         setModalOpen(true);
+    }
+
+    const onBestAnswer = () => {
+        const temp = { ...inventoryData }
+        temp.chapter1 = true
+        setInventoryData(temp)
+        setGotItem(true);
+        nextScene()
+    }
+
+    const onWrongAnswer = () => {
+        onChapterFailed()
+    }
+
+    const onNormalAnswer = () => {
+        nextScene()
     }
 
     function sceneControl() {
@@ -90,21 +116,11 @@ export default function Ch1(props) {
                 )
             case 5:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
-                )
-            case 6:
-                return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
-                )
-
-            case 7:
-                return (
                     <>
-                        <img src={sceneImage[6]} width="100%" onClick={onClickLastStep} />
+                        <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                            <img src={sceneImage[5]} width="100%" onClick={onOpenQuestion} />
+
+                        </Fade>
                         <Modal
                             open={modalOpen}
                         >
@@ -122,24 +138,83 @@ export default function Ch1(props) {
                                 }}
                             >
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Typography fontSize={"30px"} color="white">
-                                        สถานการณ์ตอนนี้ คิดว่าควรทำอย่างไร
+                                    <Typography fontSize={"32px"} color="#AD1A68">
+                                        คุณจะทำอย่างไรกับสถานการณ์นี้
                                     </Typography>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }} onClick={onChapterSuccessAndGotItem}>
-                                    <Button variant="contained">
-                                        choice1 (go next chapter and got item)
-                                    </Button>
+                                <Grid item>
+                                    <Grid
+                                        container
+                                        alignItems={"center"}
+                                        justifyContent="center"
+                                        sx={{
+                                            ":hover": {
+                                                cursor: "pointer"
+                                            },
+                                            margin: "10px",
+                                            height: "160px",
+                                            width: "600px",
+                                            // padding: "50px",
+                                            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
+                                            backgroundSize: "cover",
+
+                                        }}
+                                        onClick={onWrongAnswer}
+                                    >
+
+
+                                        วิ่งเข้าไปสุดแรงเพื่อผลักออกจากพื้นที่บันได
+
+                                    </Grid>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }}>
-                                    <Button variant="contained" onClick={onChapterFailed}>
-                                        choice2 (failed)
-                                    </Button>
+                                <Grid item >
+                                    <Grid
+                                        container
+                                        alignItems={"center"}
+                                        justifyContent="center"
+                                        sx={{
+                                            ":hover": {
+                                                cursor: "pointer"
+                                            },
+                                            margin: "10px",
+                                            height: "160px",
+                                            width: "600px",
+                                            // padding: "50px",
+                                            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
+                                            backgroundSize: "cover",
+
+                                        }}
+                                        onClick={onBestAnswer}
+
+                                    >
+
+                                        เข้าไปช่วยพยุง ทำแผล หลังจากล้มลงไปแล้ว
+
+                                    </Grid>
                                 </Grid>
-                                <Grid item style={{ margin: "10px" }} onClick={onChapterSuccess}>
-                                    <Button variant="contained">
-                                        choice3 (go next chapter)
-                                    </Button>
+                                <Grid item >
+                                    <Grid
+                                        container
+                                        alignItems={"center"}
+                                        justifyContent="center"
+                                        sx={{
+                                            ":hover": {
+                                                cursor: "pointer"
+                                            },
+                                            margin: "10px",
+                                            height: "160px",
+                                            width: "600px",
+
+                                            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
+                                            backgroundSize: "cover",
+
+                                        }}
+                                        onClick={onNormalAnswer}
+                                    >
+
+                                        บอกให้ระวังและเข้าไปช่วยดึงตัวขึ้นมาจากการเสียหลัก
+
+                                    </Grid>
                                 </Grid>
                             </Grid>
 
@@ -147,7 +222,21 @@ export default function Ch1(props) {
                         </Modal>
                     </>
                 )
-            
+            case 6:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+
+            case 7:
+                return (
+                    <>
+                        <img src={sceneImage[6]} width="100%" onClick={onClickLastStep} />
+
+                    </>
+                )
+
             default:
                 break;
 

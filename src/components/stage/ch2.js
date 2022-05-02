@@ -31,7 +31,7 @@ export default function Ch2(props) {
     console.log(scene)
 
     useEffect(() => {
-        console.log("apple")
+        
         sceneImage.forEach((image) => {
             new Image().src = image;
         })
@@ -50,7 +50,7 @@ export default function Ch2(props) {
 
     const onClickLastStep = () => {
         if (gotItem) {
-            nextScene();
+            onShowGotItem()
         } else {
             props.onNext();
         }
@@ -251,13 +251,13 @@ export default function Ch2(props) {
             case 9:
                 return (
                     <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[9]} width="100%" onClick={onClickLastStep} />
+                        <img src={sceneImage[9]} width="100%" onClick={()=> nextScene()} />
                     </Fade>
                 )
             case 10:
                 return (
                     <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[10]} width="100%" onClick={onShowGotItem} />
+                        <img src={sceneImage[10]} width="100%" onClick={onClickLastStep} />
                     </Fade>
                 )
 
