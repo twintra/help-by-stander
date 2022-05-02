@@ -16,8 +16,8 @@ export default function Ch4(props) {
 
     const sceneImage = [
         `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/Chapter4_page2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/Chapter4_Page3.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page4.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page5_question.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page6.png`,

@@ -54,10 +54,10 @@ export default function Home() {
 
     const onClickStart = () => {
         const item = {
-            chapter1:false,
-            chapter2:false,
-            chapter3:false,
-            chapter4:false,
+            chapter1: false,
+            chapter2: false,
+            chapter3: false,
+            chapter4: false,
 
         }
         localStorage.setItem("currentState", "char")
@@ -105,11 +105,11 @@ export default function Home() {
                 item
                 position={"absolute"}
                 sx={{
-                    width:"100vw",
-                    height:"100vh",
+                    width: "100vw",
+                    height: "100vh",
                     backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/1st_Page/1stPage_Element-35.png)`,
-                    backgroundSize:"cover",
-                    backgroundPosition:"center"
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
                 }} >
                 {/* <img
                     // width={"100%"}
@@ -150,18 +150,49 @@ export default function Home() {
             <Modal
                 open={modalOpen}
             >
-                <Box sx={{ ...modalStyle, width: 200 }}>
-                    <h2 id="child-modal-title">You have a game in progress</h2>
-                    <p id="child-modal-description">
+                <Box sx={{ ...modalStyle, }}>
+                    {/* <Typography fontFamily={"Niagara"} fontSize={"48px"} >
+                        You have a game in progress!
+                    </Typography>
+
+                    <Typography fontFamily={"Niagara"} fontSize={"24px"}>
+
                         Do you want to continue the game?
-                    </p>
+                    </Typography> */}
+                    <Typography fontFamily={"JSNoklae"} fontSize={"38px"} >
+                        You have a game in progress!
+                    </Typography>
+
+                    <Typography fontFamily={"JSNoklae"} fontSize={"24px"}>
+
+                        Do you want to continue the game?
+                    </Typography>
+
                     <Grid container direction={"row"}>
                         <Grid item>
-                            <Button onClick={onReset}>Reset</Button>
+                            <Button onClick={onReset}>
+                                {/* <Typography fontFamily={"Niagara"} fontSize={"24px"} >
+
+                                    Reset
+                                </Typography> */}
+                                <Typography fontFamily={"JSNoklae"} fontSize={"24px"} >
+
+                                    Reset
+                                </Typography>
+                            </Button>
 
                         </Grid>
                         <Grid item>
-                            <Button onClick={onContinue}>Continue</Button>
+                            <Button onClick={onContinue}>
+                                {/* <Typography fontFamily={"Niagara"} fontSize={"24px"} >
+
+                                    Continue
+                                </Typography> */}
+                                <Typography fontFamily={"JSNoklae"} fontSize={"24px"} >
+
+                                    Continue
+                                </Typography>
+                            </Button>
 
                         </Grid>
                     </Grid>
