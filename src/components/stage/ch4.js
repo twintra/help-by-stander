@@ -134,7 +134,7 @@ export default function Ch4(props) {
                                 }}
                             >
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Typography fontSize={"32px"} color="#AD1A68">
+                                    <Typography fontFamily={"JSNoklae"} fontSize={"60px"} color="#AD1A68">
                                         คุณจะทำอย่างไรกับสถานการณ์นี้
                                     </Typography>
                                 </Grid>
@@ -156,11 +156,13 @@ export default function Ch4(props) {
 
                                         }}
                                         onClick={onNormalAnswer}
-                                        
+
                                     >
 
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
+                                            ตะโกนบอกให้ระวังทันที
 
-                                        ตะโกนบอกให้ระวังทันที
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -183,8 +185,10 @@ export default function Ch4(props) {
                                         }}
                                         onClick={onWrongAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        เอาตัวเองเข้าไปบังเพื่อน
+                                            เอาตัวเองเข้าไปบังเพื่อน
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -207,8 +211,10 @@ export default function Ch4(props) {
                                         }}
                                         onClick={onBestAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        ตะโกนเรียกรปภ.
+                                            ตะโกนเรียกรปภ.
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>

@@ -7,8 +7,8 @@ import LoadingScreen from "./loadingScreen";
 
 export default function Ch2(props) {
 
-    
-    
+
+
     const [scene, setScene] = useState(-1);
     const [modalOpen, setModalOpen] = useState(false);
     const public_path = process.env.PUBLIC_URL
@@ -31,13 +31,13 @@ export default function Ch2(props) {
     console.log(scene)
 
     useEffect(() => {
-        
+
         sceneImage.forEach((image) => {
             new Image().src = image;
         })
         setInventoryData(JSON.parse(localStorage.getItem("inventory")))
-        
-        
+
+
     }, [])
 
     const nextScene = () => {
@@ -57,7 +57,7 @@ export default function Ch2(props) {
 
     }
     const onShowGotItem = () => {
-        
+
         localStorage.setItem("inventory", JSON.stringify(inventoryData))
         setScene(-3)
     }
@@ -67,7 +67,7 @@ export default function Ch2(props) {
     }
 
     const onBestAnswer = () => {
-        const temp = {...inventoryData}
+        const temp = { ...inventoryData }
         temp.chapter2 = true
         setInventoryData(temp)
         setGotItem(true);
@@ -157,7 +157,7 @@ export default function Ch2(props) {
                                 }}
                             >
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Typography fontSize={"32px"} color="#AD1A68">
+                                    <Typography fontFamily={"JSNoklae"} fontSize={"60px"} color="#AD1A68">
                                         คุณจะทำอย่างไรกับสถานการณ์นี้
                                     </Typography>
                                 </Grid>
@@ -181,8 +181,10 @@ export default function Ch2(props) {
                                         onClick={onBestAnswer}
                                     >
 
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        ตะโกนบอกให้ระวัง
+                                            ตะโกนบอกให้ระวัง
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -205,8 +207,10 @@ export default function Ch2(props) {
                                         }}
                                         onClick={onWrongAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        ยืนอยู่เฉย ๆ รอให้คนอื่นเข้าไปช่วย
+                                            ยืนอยู่เฉย ๆ รอให้คนอื่นเข้าไปช่วย
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -222,15 +226,17 @@ export default function Ch2(props) {
                                             margin: "10px",
                                             height: "160px",
                                             width: "600px",
-                                            
+
                                             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-2.png)`,
                                             backgroundSize: "cover",
 
                                         }}
                                         onClick={onNormalAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        เข้าไปดึงตัวออกมา
+                                            เข้าไปดึงตัวออกมา
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -251,7 +257,7 @@ export default function Ch2(props) {
             case 9:
                 return (
                     <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[9]} width="100%" onClick={()=> nextScene()} />
+                        <img src={sceneImage[9]} width="100%" onClick={() => nextScene()} />
                     </Fade>
                 )
             case 10:

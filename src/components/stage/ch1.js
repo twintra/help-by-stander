@@ -138,7 +138,7 @@ export default function Ch1(props) {
                                 }}
                             >
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Typography fontSize={"32px"} color="#AD1A68">
+                                    <Typography fontFamily={"JSNoklae"} fontSize={"60px"} color="#AD1A68">
                                         คุณจะทำอย่างไรกับสถานการณ์นี้
                                     </Typography>
                                 </Grid>
@@ -161,9 +161,11 @@ export default function Ch1(props) {
                                         }}
                                         onClick={onWrongAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
+                                            วิ่งเข้าไปสุดแรงเพื่อผลักออกจากพื้นที่บันได
+                                        </Typography>
 
-                                        วิ่งเข้าไปสุดแรงเพื่อผลักออกจากพื้นที่บันได
 
                                     </Grid>
                                 </Grid>
@@ -187,8 +189,10 @@ export default function Ch1(props) {
                                         onClick={onBestAnswer}
 
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        เข้าไปช่วยพยุง ทำแผล หลังจากล้มลงไปแล้ว
+                                            เข้าไปช่วยพยุง ทำแผล หลังจากล้มลงไปแล้ว
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -211,8 +215,10 @@ export default function Ch1(props) {
                                         }}
                                         onClick={onNormalAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        บอกให้ระวังและเข้าไปช่วยดึงตัวขึ้นมาจากการเสียหลัก
+                                            บอกให้ระวังและเข้าไปช่วยดึงตัวขึ้นมาจากการเสียหลัก
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>

@@ -138,7 +138,7 @@ export default function Ch3(props) {
                                 }}
                             >
                                 <Grid item style={{ margin: "10px" }}>
-                                    <Typography fontSize={"32px"} color="#AD1A68">
+                                    <Typography fontFamily={"JSNoklae"} fontSize={"60px"} color="#AD1A68">
                                         คุณจะทำอย่างไรกับสถานการณ์นี้
                                     </Typography>
                                 </Grid>
@@ -162,8 +162,10 @@ export default function Ch3(props) {
                                         onClick={onBestAnswer}
                                     >
 
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        พูดหยุดห้ามการกระทำของเขาและเข้าไปพูดคุย
+                                            พูดหยุดห้ามการกระทำของเขาและเข้าไปพูดคุย
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -186,8 +188,10 @@ export default function Ch3(props) {
                                         }}
                                         onClick={onNormalAnswer}
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        เข้าไปประชิดตัวแล้วผลักตัวเขาให้ออกห่างจากแก้ว
+                                            เข้าไปประชิดตัวแล้วผลักตัวเขาให้ออกห่างจากแก้ว
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>
@@ -211,8 +215,10 @@ export default function Ch3(props) {
                                         onClick={onWrongAnswer}
 
                                     >
+                                        <Typography fontFamily={"JSNoklae"} fontSize={"32px"} >
 
-                                        เข้าไปหยิบแก้วในมือเขาออกไป
+                                            เข้าไปหยิบแก้วในมือเขาออกไป
+                                        </Typography>
 
                                     </Grid>
                                 </Grid>

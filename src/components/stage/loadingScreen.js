@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import "../../styles/loadingScreen.css"
+
 
 
 export default function LoadingScreen(props) {
@@ -73,7 +73,7 @@ export default function LoadingScreen(props) {
             }}
         >
             <Grid container direction="column" position="absolute" top={"30vh"}>
-                <Grid container direction={"row"}  justifyContent="center" >
+                <Grid container direction={"row"} justifyContent="center" >
                     <img src={`${process.env.PUBLIC_URL}/assets/Element/Loading_page/Loading_Element-6.png`} width={"50px"} height={"50px"} style={{ paddingTop: "50px" }} />
                     <img src={`${process.env.PUBLIC_URL}${chapterImagePath}`} width={"300px"} height={"300px"} />
 
@@ -85,9 +85,11 @@ export default function LoadingScreen(props) {
                 <Grid direction={"column"} container alignItems={"center"} justifyContent="center">
                     <ProgressBar progress={completed} />
                     <Grid item sx={{}}>
-                        <div className="load">
+                        <Typography fontFamily={"Niagara"} color="white" fontSize={"25px"}>
                             {completed}
-                        </div>
+                        </Typography>
+                        
+                        
 
                     </Grid>
 

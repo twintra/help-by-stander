@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Niagara';
+    src: local('Niagara'), url("./fonts/NIAGSOL.TTF") format('woff');
+  }
+@font-face {
+    font-family: 'JSNoklae';
+    src: local('JSNoklae'), url("./fonts/JS_Noklae_Normal/JS_Noklae_Normal.ttf") format('woff');
+  }
