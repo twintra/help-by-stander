@@ -26,6 +26,8 @@ export default function Ch0(props) {
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page5.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page6.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page8.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page9.png`,
         
     ]
     useEffect(()=>{
@@ -88,6 +90,18 @@ export default function Ch0(props) {
                 )
 
             case 7:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[7]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 8:
+                return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[8]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 9:
                 return <HowToPlay onNext={props.onNext} />
             default:
                 break;

@@ -12,15 +12,16 @@ export default function Ch1(props) {
     const [gotItem, setGotItem] = useState(false);
     const [inventoryData, setInventoryData] = useState({})
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page5.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page6.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
 
     ]
+    console.log(scene)
 
     useEffect(() => {
         sceneImage.forEach((image) => {

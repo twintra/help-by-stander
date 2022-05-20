@@ -14,6 +14,7 @@ export default function Ch3(props) {
     const [inventoryData, setInventoryData] = useState({})
 
     const sceneImage = [
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page0.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page1.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page2.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page3.png`,
@@ -117,9 +118,15 @@ export default function Ch3(props) {
                 )
             case 5:
                 return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 6:
+                return (
                     <>
                         <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                            <img src={sceneImage[5]} width="100%" onClick={onOpenQuestion} />
+                            <img src={sceneImage[6]} width="100%" onClick={onOpenQuestion} />
                         </Fade>
                         <Modal
                             open={modalOpen}
@@ -228,10 +235,10 @@ export default function Ch3(props) {
                         </Modal>
                     </>
                 )
-            case 6:
+            case 7:
                 return (
                     <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[6]} width="100%" onClick={onClickLastStep} />
+                        <img src={sceneImage[7]} width="100%" onClick={onClickLastStep} />
                     </Fade>
                 )
 
