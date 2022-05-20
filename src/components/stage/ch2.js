@@ -16,17 +16,17 @@ export default function Ch2(props) {
     const [inventoryData, setInventoryData] = useState({})
 
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page1.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_page2.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page4.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page6.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page7.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_Page8_question.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page7.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page8_question.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_Page9.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_page10.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter2/Chapter2_good_answer_scene.jpg`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter2/chapter2_good_answer_scene.jpg`,
     ]
     console.log(scene)
 
@@ -85,7 +85,7 @@ export default function Ch2(props) {
     function sceneControl() {
         switch (scene) {
             case -3:
-                return <GotItemScreen onNext={props.onNext} />
+                return <GotItemScreen onNext={props.onNext} item={2}/>
             case -2:
                 return <FailedScreen onNext={props.onNext} />
             case -1:

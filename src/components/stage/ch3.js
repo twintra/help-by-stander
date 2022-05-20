@@ -80,7 +80,7 @@ export default function Ch3(props) {
     function sceneControl() {
         switch (scene) {
             case -3:
-                return <GotItemScreen onNext={props.onNext} />
+                return <GotItemScreen onNext={props.onNext} item={3} />
             case -2:
                 return <FailedScreen onNext={props.onNext} />
             case -1:
