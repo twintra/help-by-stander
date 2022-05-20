@@ -20,7 +20,8 @@ export default function Ch3(props) {
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page3.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page4.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page6_question.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page7_question.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_pagefinal_if_good_answer.png`,
     ]
 
@@ -124,9 +125,15 @@ export default function Ch3(props) {
                 )
             case 6:
                 return (
+                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
+                    </Fade>
+                )
+            case 7:
+                return (
                     <>
                         <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                            <img src={sceneImage[6]} width="100%" onClick={onOpenQuestion} />
+                            <img src={sceneImage[7]} width="100%" onClick={onOpenQuestion} />
                         </Fade>
                         <Modal
                             open={modalOpen}
@@ -235,10 +242,10 @@ export default function Ch3(props) {
                         </Modal>
                     </>
                 )
-            case 7:
+            case 8:
                 return (
                     <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[7]} width="100%" onClick={onClickLastStep} />
+                        <img src={sceneImage[8]} width="100%" onClick={onClickLastStep} />
                     </Fade>
                 )
 

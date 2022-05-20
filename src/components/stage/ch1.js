@@ -12,13 +12,14 @@ export default function Ch1(props) {
     const [gotItem, setGotItem] = useState(false);
     const [inventoryData, setInventoryData] = useState({})
     const sceneImage = [
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page0.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page1.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page2.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page3.png`,
         `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page6.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page5_question.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page6.png`,
+        
 
     ]
     console.log(scene)
@@ -229,14 +230,8 @@ export default function Ch1(props) {
                         </Modal>
                     </>
                 )
-            case 6:
-                return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
-                )
 
-            case 7:
+            case 6:
                 return (
                     <>
                         <img src={sceneImage[6]} width="100%" onClick={onClickLastStep} />
