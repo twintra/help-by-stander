@@ -19,16 +19,15 @@ export default function Ch0(props) {
     const public_path = process.env.PUBLIC_URL
 
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page6.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page7.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page8.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter0/Ch0_Page9.png`,
-        
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_0.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_7.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter0/ch0_8.png`,
     ]
     useEffect(()=>{
         sceneImage.forEach((image) => {

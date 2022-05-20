@@ -12,17 +12,18 @@ export default function Ch1(props) {
     const [gotItem, setGotItem] = useState(false);
     const [inventoryData, setInventoryData] = useState({})
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page0.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page5_question.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter1/Ch1_Page6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_0.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_5_q.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter1/ch1_good_answer.png`,
+        
         
 
     ]
-    console.log(scene)
+    
 
     useEffect(() => {
         sceneImage.forEach((image) => {

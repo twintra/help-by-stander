@@ -14,15 +14,16 @@ export default function Ch3(props) {
     const [inventoryData, setInventoryData] = useState({})
 
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page0.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page6.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_Page7_question.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter3/chapter3_pagefinal_if_good_answer.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_0.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_7_q.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter3/ch3_good_answer.png`,
+        
     ]
 
     useEffect(() => {

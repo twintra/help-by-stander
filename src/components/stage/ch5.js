@@ -15,16 +15,17 @@ export default function Ch5(props) {
     const [inventoryData, setInventoryData] = useState({})
 
     const sceneImage = [
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page0.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page6.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page7.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page8.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter5/chapter5_Page9.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_0.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_7.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_8.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter5/ch5_9.png`,
+        
     ]
     
     useEffect(() => {

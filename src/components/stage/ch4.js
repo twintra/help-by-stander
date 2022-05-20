@@ -16,18 +16,19 @@ export default function Ch4(props) {
 
     const sceneImage = [
 
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page1.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page2.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page3.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page4.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page5.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page6.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page7.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page8.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_Page9_question.png`,
-        `${public_path}/assets/Element/Chapter_Manga/Chapter4/chapter4_pagefinal_if_good_answer.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_0.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_1.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_2.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_3.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_4.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_5.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_6.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_7.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_8_q.png`,
+        `${public_path}/assets/Element/Chapter_Manga/Chapter4/ch4_good_answer.png`,
+        
     ]
-    console.log(scene)
+    
     useEffect(() => {
 
         sceneImage.forEach((image) => {

@@ -26,13 +26,16 @@ export default function GotItemScreen(props) {
                 <Grid container alignContent={"center"} justifyContent="center">
 
                     <img src={`${public_path}/assets/Element/Get_Item_Page/GetItem_Element-38.png`} width={"40%"} />
+                    
                 </Grid>
+
             </Grid>
             <Grid item>
                 <Grid container alignContent={"center"} justifyContent="center">
 
-                    <img src={item_path} width={"100%"} />
+                    <img src={item_path} width={"50%"} />
                 </Grid>
+                
             </Grid>
 
         </Grid>
