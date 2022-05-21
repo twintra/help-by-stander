@@ -13,7 +13,7 @@ export default function GotItemScreen(props) {
             alignItems="center"
             
             sx={{
-
+                width:"100vw",
                 height: "100vh",
                 backgroundImage: `url(${public_path}/assets/Element/Get_Item_Page/GetItem_BG.png)`,
                 backgroundSize: "cover",
@@ -22,17 +22,15 @@ export default function GotItemScreen(props) {
             }}
             onClick={()=>props.onNext()}
         >
-            <Grid item>
-                <Grid container alignContent={"center"} justifyContent="center">
-
-                    <img src={`${public_path}/assets/Element/Get_Item_Page/GetItem_Element-38.png`} width={"40%"} />
+            <Grid xs sm={0} item sx={{width:"100%"}}>
+                <Grid container alignContent={"center"} justifyContent="center" >
+                    <img src={`${public_path}/assets/Element/Get_Item_Page/GetItem_Element-38.png`} width={"30%"} />
                     
                 </Grid>
 
             </Grid>
-            <Grid item>
-                <Grid container alignContent={"center"} justifyContent="center">
-
+            <Grid xs sm={0} item sx={{width:"100%"}}>
+                <Grid container  justifyContent="center">
                     <img src={item_path} width={"50%"} />
                 </Grid>
                 
