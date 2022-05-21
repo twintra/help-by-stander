@@ -17,6 +17,7 @@ export default function FinishedPage(props) {
                 height: "100vh",
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Element/Character_page/element/BG_AllCharacter_Page.png)`,
                 backgroundSize: "cover",
+                
             }}
             alignItems="center"
             justifyContent={"center"}
