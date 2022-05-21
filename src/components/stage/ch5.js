@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import FailedScreen from "../failedScreen";
 import GotItemScreen from "../gotItemScreen";
 import LoadingScreen from "./loadingScreen";
+import ScenePage from "./scene_page";
 
 export default function Ch5(props) {
        
@@ -40,6 +41,13 @@ export default function Ch5(props) {
 
     const nextScene = () => {
         setScene(scene + 1);
+    }
+
+    const previousScene = () => {
+        if (scene > 0) {
+
+            setScene(scene - 1);
+        }
     }
 
     const onChapterFailed = () => {
@@ -92,65 +100,44 @@ export default function Ch5(props) {
             case 0:
                 return (
 
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[0]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[0]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 1:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[1]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[1]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 2:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[2]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[2]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 3:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[3]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[3]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 4:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[4]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[4]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 5:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[5]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 6:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[6]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 7:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[7]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[7]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
             case 8:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[8]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[8]} previousScene={previousScene} nextScene={nextScene} chapter={5} />
                 )
 
             case 9:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[9]} width="100%" onClick={onClickLastStep} />
-                        
-                    </Fade>
+                    <ScenePage image_path={sceneImage[9]} previousScene={previousScene} nextScene={onClickLastStep} chapter={5} />
                 )
             
             default:

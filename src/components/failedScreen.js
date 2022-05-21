@@ -27,7 +27,7 @@ export default function FailedScreen(props) {
             </Grid>
             <Grid item>
                 <Grid container direction={"row"} alignItems="center" justifyContent={"center"}>
-                    <Grid item onClick={onClickRestart} sx={{":hover":{cursor:"pointer"}}}>
+                    <Grid item onClick={onClickRestart} sx={{ ":hover": { cursor: "pointer", transform:"scale(1.2)" }, transition: "all .2s ease-in-out", ":active":{transform:"scale(0.9)"} }}>
 
 
                         <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-46.png`} width={"400px"} />
@@ -36,7 +36,7 @@ export default function FailedScreen(props) {
                         <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-47.png`} width={"100px"} />
                     </Grid>
 
-                    <Grid item onClick={onClickNext} sx={{":hover":{cursor:"pointer"}}}>
+                    <Grid item onClick={onClickNext} sx={{ ":hover": { cursor: "pointer", transform:"scale(1.2)" }, transition: "all .2s ease-in-out", ":active":{transform:"scale(0.9)"} }}>
 
                         <img src={`${process.env.PUBLIC_URL}/assets/Element/Mission_Fail_Page/MissionFail_Element-45.png`} width={"400px"} />
 

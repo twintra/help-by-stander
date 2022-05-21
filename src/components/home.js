@@ -133,7 +133,7 @@ export default function Home() {
                         <div className="hex-inner h3"></div>
                         <div className="label">Start</div>
                     </div> */}
-                    <Grid container justifyContent={"center"} alignItems="center">
+                    <Grid container justifyContent={"center"} alignItems="center" sx={{ ":hover": { cursor: "pointer", transform:"scale(1.2)" }, transition: "all .2s ease-in-out", ":active":{transform:"scale(0.9)"} }}>
 
                         <img
                             width={"40%"}

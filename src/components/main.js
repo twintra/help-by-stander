@@ -8,6 +8,8 @@ import Ch2 from "./stage/ch2";
 import Ch3 from "./stage/ch3";
 import Ch4 from "./stage/ch4";
 import Ch5 from "./stage/ch5";
+import RestartPage from "./stage/restart_page";
+import FinishedPage from "./stage/finished_page";
 
 
 
@@ -52,9 +54,13 @@ export default function Main() {
                 return <Ch3 onNext={() => goToChapter("ch4")} />
             case "ch4":
 
-                return <Ch4 onNext={() => goToChapter("ch5")} />
+                return <Ch4 onNext={() => goToChapter("decideEnding")} />
+            case "decideEnding":
+                return <RestartPage onNext={() => goToChapter("ch5")} />
             case "ch5":
-                return <Ch5 onNext={() => console.log("finished redirect to thanks page (maybe)")} />
+                return <Ch5 onNext={() => goToChapter("finished")} />
+            case "finished":
+                return <FinishedPage  />
             default:
                 break;
         }

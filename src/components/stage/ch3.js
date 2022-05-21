@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import FailedScreen from "../failedScreen";
 import GotItemScreen from "../gotItemScreen";
 import LoadingScreen from "./loadingScreen";
+import ScenePage from "./scene_page";
 
 export default function Ch3(props) {
 
@@ -38,6 +39,13 @@ export default function Ch3(props) {
 
     const nextScene = () => {
         setScene(scene + 1);
+    }
+
+    const previousScene = () => {
+        if (scene > 0) {
+
+            setScene(scene - 1);
+        }
     }
 
     const onChapterFailed = () => {
@@ -89,53 +97,36 @@ export default function Ch3(props) {
                 return <LoadingScreen nextScene={nextScene} chapter={3} />
             case 0:
                 return (
-
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[0]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[0]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 1:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[1]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[1]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 2:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[2]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[2]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 3:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[3]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[3]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 4:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[4]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[4]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 5:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[5]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[5]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 6:
                 return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[6]} width="100%" onClick={() => nextScene()} />
-                    </Fade>
+                    <ScenePage image_path={sceneImage[6]} previousScene={previousScene} nextScene={nextScene} chapter={3} />
                 )
             case 7:
                 return (
                     <>
-                        <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                            <img src={sceneImage[7]} width="100%" onClick={onOpenQuestion} />
-                        </Fade>
+                        <ScenePage image_path={sceneImage[0]} previousScene={previousScene} nextScene={onOpenQuestion} chapter={3} />
                         <Modal
                             open={modalOpen}
                         >
@@ -163,8 +154,13 @@ export default function Ch3(props) {
                                         alignItems={"center"}
                                         justifyContent="center"
                                         sx={{
-                                            ":hover": {
-                                                cursor: "pointer"
+                                            ":hover": { 
+                                                cursor: "pointer", 
+                                                transform:"scale(1.2)" 
+                                            }, 
+                                            transition: "all .2s ease-in-out", 
+                                            ":active":{
+                                                transform:"scale(0.9)"
                                             },
                                             margin: "10px",
                                             height: "160px",
@@ -190,8 +186,13 @@ export default function Ch3(props) {
                                         alignItems={"center"}
                                         justifyContent="center"
                                         sx={{
-                                            ":hover": {
-                                                cursor: "pointer"
+                                            ":hover": { 
+                                                cursor: "pointer", 
+                                                transform:"scale(1.2)" 
+                                            }, 
+                                            transition: "all .2s ease-in-out", 
+                                            ":active":{
+                                                transform:"scale(0.9)"
                                             },
                                             margin: "10px",
                                             height: "160px",
@@ -216,8 +217,13 @@ export default function Ch3(props) {
                                         alignItems={"center"}
                                         justifyContent="center"
                                         sx={{
-                                            ":hover": {
-                                                cursor: "pointer"
+                                            ":hover": { 
+                                                cursor: "pointer", 
+                                                transform:"scale(1.2)" 
+                                            }, 
+                                            transition: "all .2s ease-in-out", 
+                                            ":active":{
+                                                transform:"scale(0.9)"
                                             },
                                             margin: "10px",
                                             height: "160px",
@@ -244,11 +250,12 @@ export default function Ch3(props) {
                     </>
                 )
             case 8:
-                return (
-                    <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
-                        <img src={sceneImage[8]} width="100%" onClick={onClickLastStep} />
-                    </Fade>
-                )
+                return onClickLastStep();
+                // (
+                //     <Fade in={true} timeout={{ enter: 500, exit: 500 }}>
+                //         <img src={sceneImage[8]} width="100%" onClick={onClickLastStep} />
+                //     </Fade>
+                // )
 
             default:
                 break;
