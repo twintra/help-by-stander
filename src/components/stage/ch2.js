@@ -256,9 +256,10 @@ export default function Ch2(props) {
                 )
 
             case 8:
-                return (
-                    <ScenePage image_path={sceneImage[8]} previousScene={previousScene} nextScene={nextScene} chapter={2} />
-                )
+                return onClickLastStep()
+                // (
+                //     <ScenePage image_path={sceneImage[8]} previousScene={previousScene} nextScene={nextScene} chapter={2} />
+                // )
             case 9:
                 return (
                     <ScenePage image_path={sceneImage[9]} previousScene={previousScene} nextScene={nextScene} chapter={2} />
