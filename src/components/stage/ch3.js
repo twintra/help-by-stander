@@ -126,7 +126,7 @@ export default function Ch3(props) {
             case 7:
                 return (
                     <>
-                        <ScenePage image_path={sceneImage[0]} previousScene={previousScene} nextScene={onOpenQuestion} chapter={3} />
+                        <ScenePage image_path={sceneImage[7]} previousScene={previousScene} nextScene={onOpenQuestion} chapter={3} />
                         <Modal
                             open={modalOpen}
                         >
